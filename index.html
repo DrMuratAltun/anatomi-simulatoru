@@ -68,7 +68,7 @@
 
         <div class="control-row toggle">
             <label for="genital-toggle">Üreme sistemi</label>
-            <input type="checkbox" id="genital-toggle" class="switch">
+            <input type="checkbox" id="genital-toggle" class="switch" checked>
         </div>
 
         <div class="panel-head margin-top">
@@ -122,13 +122,14 @@
         <button class="mob-btn" data-panel="info-panel">◨ Bilgi Kartı</button>
     </nav>
 
-    <script type="module" src="app.js?v=b3293fa7"></script>
+    <script type="module" src="app.js?v=1a1d8429"></script>
     <script src="mobile.js?v=0cde8498"></script>
     <script>
-        // Otomatik tanıtım turu yalnızca ?demo=1 ile yüklenir
-        if (new URLSearchParams(location.search).has('demo')) {
+        // Otomatik tanıtım turu: ?demo=1 (yatay) · ?demo=dikey (9:16, Reels)
+        const demo = new URLSearchParams(location.search).get('demo');
+        if (demo) {
             const s = document.createElement('script');
-            s.src = 'demo.js';
+            s.src = demo === 'dikey' ? 'demo-dikey.js' : 'demo.js';
             document.body.appendChild(s);
         }
     </script>

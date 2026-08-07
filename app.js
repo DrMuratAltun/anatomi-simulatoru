@@ -148,7 +148,8 @@ class AnatomyApp {
         this.autoSpin = true;
         this.showHoverName = true;
         this.showCovers = false;     // fasya/periton gibi örtü zarları
-        this.showGenital = false;    // üreme sistemi — sınıf ortamı için kapalı
+        this.showGenital = true;     // üreme sistemi varsayılan AÇIK (anatomik bütünlük);
+                                     // yalnız tanıtım videosunda kapatılıyor
         this.dimOpacity = 0.16;
 
         this.raycaster = new THREE.Raycaster();
