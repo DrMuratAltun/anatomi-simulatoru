@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anatomi Simülatörü | Tam Boy İnsan Anatomisi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "./vendor/three/three.module.min.js",
+            "three/addons/": "./vendor/three/addons/"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p id="loading-text">Anatomik model yükleniyor…</p>
+    </div>
+
+    <header class="app-header">
+        <div class="brand">
+            <img class="yzo-mark" src="assets/yzo-mark.png" alt="Yapay Zekâ Okulum">
+            <div class="brand-text">
+                <span class="wordmark">Yapay Zekâ Okulum</span>
+                <h1>ANATOMİ SİMÜLATÖRÜ</h1>
+                <span class="badge">Tam Boy İnsan Anatomisi · Z-Anatomy Atlası</span>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="ghost-btn" id="reset-view-btn">Görünümü Sıfırla</button>
+            <button class="ghost-btn" id="spin-btn" aria-pressed="true">Otomatik Dönüş: Açık</button>
+        </div>
+    </header>
+
+    <aside class="left-panel glass">
+        <div class="panel-head">
+            <h3>ANATOMİK SİSTEMLER</h3>
+            <span class="hint">Tıkla: yalnız o sistemi göster · Göz: katman aç/kapa</span>
+        </div>
+        <div id="system-list" class="system-list"></div>
+
+        <div class="panel-head margin-top">
+            <h3>GÖRÜNÜM</h3>
+        </div>
+        <div class="control-row">
+            <label for="opacity-slider">Diğer katmanların saydamlığı</label>
+            <input type="range" id="opacity-slider" min="0" max="100" value="16">
+        </div>
+        <div class="control-row toggle">
+            <label for="xray-toggle">Röntgen modu</label>
+            <input type="checkbox" id="xray-toggle" class="switch">
+        </div>
+        <div class="control-row toggle">
+            <label for="hover-toggle">Yapı adını göster (imleç)</label>
+            <input type="checkbox" id="hover-toggle" class="switch" checked>
+        </div>
+
+        <div class="control-row toggle">
+            <label for="cover-toggle">Örtü zarları <em>(fasya, periton…)</em></label>
+            <input type="checkbox" id="cover-toggle" class="switch">
+        </div>
+
+        <div class="panel-head margin-top">
+            <h3>KAMERA</h3>
+        </div>
+        <div class="cam-grid">
+            <button class="cam-btn" data-cam="front">Ön</button>
+            <button class="cam-btn" data-cam="back">Arka</button>
+            <button class="cam-btn" data-cam="left">Sol</button>
+            <button class="cam-btn" data-cam="right">Sağ</button>
+            <button class="cam-btn" data-cam="head">Baş</button>
+            <button class="cam-btn" data-cam="torso">Gövde</button>
+        </div>
+    </aside>
+
+    <aside class="right-panel glass" id="info-panel">
+        <div class="panel-head">
+            <div class="sys-dot" id="info-dot"></div>
+            <h2 id="info-title">Sistem seçilmedi</h2>
+        </div>
+        <div class="latin" id="info-latin">—</div>
+        <div class="panel-body">
+            <section class="info-block">
+                <h4>Tanım</h4>
+                <p id="info-desc">Soldaki listeden bir anatomik sistem seçin.</p>
+            </section>
+            <section class="info-block" id="structure-block" hidden>
+                <h4>Seçili Yapı</h4>
+                <p class="structure-name" id="structure-name">—</p>
+                <p class="structure-side" id="structure-side"></p>
+            </section>
+            <section class="info-block">
+                <h4>Katman Bilgisi</h4>
+                <ul class="spec-list" id="info-specs"></ul>
+            </section>
+        </div>
+    </aside>
+
+    <div id="tooltip" class="tooltip"></div>
+
+    <footer class="app-footer">
+        <span><strong>Sol tık + sürükle:</strong> döndür</span>
+        <span><strong>Sağ tık + sürükle:</strong> kaydır</span>
+        <span><strong>Tekerlek:</strong> yakınlaş</span>
+        <span class="attrib">Model: BodyParts3D — DBCLS — CC-BY-SA 2.1 JP · Z-Anatomy — CC-BY-SA 4.0</span>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+    <script>
+        // Otomatik tanıtım turu yalnızca ?demo=1 ile yüklenir
+        if (new URLSearchParams(location.search).has('demo')) {
+            const s = document.createElement('script');
+            s.src = 'demo.js';
+            document.body.appendChild(s);
+        }
+    </script>
+</body>
+</html>

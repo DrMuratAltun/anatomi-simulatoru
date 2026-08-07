@@ -1,0 +1,12 @@
+# Kaynak Blender atlası — 308 MB, upstream'den indirilir (bkz. README)
+vendor/Z-Anatomy/
+vendor/*.zip
+
+# Üretim çıktıları
+*.mov
+data/blend_report.json
+
+# Sistem
+.DS_Store
+__pycache__/
+*.pyc

@@ -1,0 +1,79 @@
+{
+ "iskelet": {
+  "id": "iskelet",
+  "ad": "İskelet Sistemi",
+  "koleksiyon": "1: Skeletal system",
+  "dosya": "systems/iskelet.glb",
+  "obje": 277,
+  "ucgen_ham": 702015,
+  "hedef_ucgen": 320000,
+  "decimate_orani": 0.4558,
+  "boyut_mb": 5.27
+ },
+ "eklem": {
+  "id": "eklem",
+  "ad": "Eklemler",
+  "koleksiyon": "3: Joints",
+  "dosya": "systems/eklem.glb",
+  "obje": 413,
+  "ucgen_ham": 358055,
+  "hedef_ucgen": 150000,
+  "decimate_orani": 0.4189,
+  "boyut_mb": 3.65
+ },
+ "kas": {
+  "id": "kas",
+  "ad": "Kas Sistemi",
+  "koleksiyon": "4: Muscular system",
+  "dosya": "systems/kas.glb",
+  "obje": 683,
+  "ucgen_ham": 2323599,
+  "hedef_ucgen": 420000,
+  "decimate_orani": 0.1808,
+  "boyut_mb": 8.08
+ },
+ "dolasim": {
+  "id": "dolasim",
+  "ad": "Dolaşım Sistemi",
+  "koleksiyon": "5: Cardiovascular system",
+  "dosya": "systems/dolasim.glb",
+  "obje": 22,
+  "ucgen_ham": 189336,
+  "hedef_ucgen": 190000,
+  "decimate_orani": 1.0,
+  "boyut_mb": 3.39
+ },
+ "lenf": {
+  "id": "lenf",
+  "ad": "Lenf Sistemi",
+  "koleksiyon": "6: Lymphoid organs",
+  "dosya": "systems/lenf.glb",
+  "obje": 163,
+  "ucgen_ham": 127682,
+  "hedef_ucgen": 130000,
+  "decimate_orani": 1.0,
+  "boyut_mb": 1.51
+ },
+ "sinir": {
+  "id": "sinir",
+  "ad": "Sinir Sistemi",
+  "koleksiyon": "7: Nervous system & Sense organs",
+  "dosya": "systems/sinir.glb",
+  "obje": 335,
+  "ucgen_ham": 1258694,
+  "hedef_ucgen": 320000,
+  "decimate_orani": 0.2542,
+  "boyut_mb": 6.3
+ },
+ "ic-organlar": {
+  "id": "ic-organlar",
+  "ad": "İç Organlar",
+  "koleksiyon": "8: Visceral systems",
+  "dosya": "systems/ic-organlar.glb",
+  "obje": 76,
+  "ucgen_ham": 493121,
+  "hedef_ucgen": 260000,
+  "decimate_orani": 0.5273,
+  "boyut_mb": 4.73
+ }
+}
