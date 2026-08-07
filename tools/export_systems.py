@@ -36,17 +36,23 @@ SYSTEMS = [
     ("iskelet",     "1: Skeletal system",               "İskelet Sistemi",   320000),
     ("eklem",       "3: Joints",                        "Eklemler",          150000),
     ("kas",         "4: Muscular system",               "Kas Sistemi",       420000),
-    ("dolasim",     "5: Cardiovascular system",         "Dolaşım Sistemi",   190000),
+    ("dolasim",     "5: Cardiovascular system",         "Dolaşım Sistemi",   420000),
     ("lenf",        "6: Lymphoid organs",               "Lenf Sistemi",      130000),
-    ("sinir",       "7: Nervous system & Sense organs", "Sinir Sistemi",     320000),
+    ("sinir",       "7: Nervous system & Sense organs", "Sinir Sistemi",     400000),
     ("ic-organlar", "8: Visceral systems",              "İç Organlar",       260000),
 ]
 
 MIN_TRIS_TO_DECIMATE = 600
 
+# Z-Anatomy'de damarlar ve bazı sinirler MESH değil, bevel'li BÉZIER EĞRİ
+# olarak modellenmiş (5: Cardiovascular system -> 60 mesh ama 654 eğri).
+# Yalnız MESH süzülürse dolaşım sisteminden arter/ven ağacının TAMAMI düşer,
+# geriye sadece kalp kalır. Eğriler dışa aktarım öncesi mesh'e çevrilir.
+GEOMETRI_TIPLERI = {'MESH', 'CURVE', 'SURFACE'}
+
 
 def evaluated_tris(obj, depsgraph):
-    """Modifier'lar uygulandıktan sonraki üçgen sayısı."""
+    """Modifier'lar (ve eğri bevel'i) uygulandıktan sonraki üçgen sayısı."""
     try:
         ev = obj.evaluated_get(depsgraph)
         me = ev.to_mesh()
@@ -69,7 +75,7 @@ def collect(coll, depsgraph):
     out = []
     seen = set()
     for obj in coll.all_objects:
-        if obj.type != 'MESH' or obj.name in seen or is_label(obj):
+        if obj.type not in GEOMETRI_TIPLERI or obj.name in seen or is_label(obj):
             continue
         seen.add(obj.name)
         tris = evaluated_tris(obj, depsgraph)
@@ -107,17 +113,36 @@ def export_system(sid, coll_name, tr_name, target, depsgraph):
     bpy.context.scene.collection.children.link(tmp)
 
     added = []
+    gecici = []      # (yeni_obje, kaynak_obje, eski_ad) — export sonrası temizlenir
     for obj, tris in items:
-        # Eski geçici decimate'leri temizle
-        for m in [m for m in obj.modifiers if m.name == "ZExportDecimate"]:
-            obj.modifiers.remove(m)
+        hedef = obj
+
+        if obj.type != 'MESH':
+            # Eğri/yüzey: değerlendirilmiş mesh'ten geçici obje üret.
+            # Ad çakışmasın diye kaynak geçici olarak yeniden adlandırılır,
+            # yoksa yeni obje "Ad.001" olur ve glTF düğüm adı bozulur.
+            try:
+                ev = obj.evaluated_get(depsgraph)
+                me = bpy.data.meshes.new_from_object(ev)
+            except RuntimeError:
+                continue
+            if me is None or len(me.polygons) == 0:
+                continue
+            eski_ad = obj.name
+            obj.name = eski_ad + "~src"
+            hedef = bpy.data.objects.new(eski_ad, me)
+            hedef.matrix_world = obj.matrix_world
+            gecici.append((hedef, obj, eski_ad))
+
+        for m in [m for m in hedef.modifiers if m.name == "ZExportDecimate"]:
+            hedef.modifiers.remove(m)
         if ratio < 0.999 and tris >= MIN_TRIS_TO_DECIMATE:
-            mod = obj.modifiers.new(name="ZExportDecimate", type='DECIMATE')
+            mod = hedef.modifiers.new(name="ZExportDecimate", type='DECIMATE')
             mod.decimate_type = 'COLLAPSE'
             mod.ratio = ratio
         try:
-            tmp.objects.link(obj)
-            added.append(obj)
+            tmp.objects.link(hedef)
+            added.append(hedef)
         except RuntimeError:
             pass
 
@@ -149,11 +174,18 @@ def export_system(sid, coll_name, tr_name, target, depsgraph):
         export_morph=False,
     )
 
-    # Temizlik: decimate modifier'larını kaldır, koleksiyondan çıkar
+    # Temizlik: decimate modifier'larını kaldır, geçici objeleri sil,
+    # eğri kaynaklarının adını geri ver
     for obj in added:
         for m in [m for m in obj.modifiers if m.name == "ZExportDecimate"]:
             obj.modifiers.remove(m)
     clear_tmp()
+    for yeni, kaynak, eski_ad in gecici:
+        mesh_data = yeni.data
+        bpy.data.objects.remove(yeni, do_unlink=True)
+        if mesh_data.users == 0:
+            bpy.data.meshes.remove(mesh_data)
+        kaynak.name = eski_ad
 
     size_mb = os.path.getsize(out) / 1e6
     return {
@@ -162,6 +194,7 @@ def export_system(sid, coll_name, tr_name, target, depsgraph):
         "koleksiyon": coll_name,
         "dosya": f"systems/{sid}.glb",
         "obje": len(added),
+        "egriden": len(gecici),
         "ucgen_ham": raw,
         "hedef_ucgen": target,
         "decimate_orani": round(ratio, 4),

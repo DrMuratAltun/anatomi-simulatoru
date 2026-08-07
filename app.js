@@ -60,6 +60,11 @@ const SYSTEMS = [
     }
 ];
 
+// 3B veri sürümü — GLB'ler yeniden üretildiğinde tools/stamp_data.py ile
+// güncellenir. Tarayıcı önbelleği aksi halde eski modeli servis ediyor
+// (dolaşım sistemi 676 yapıya çıktığı hâlde 22 yapılık eski dosya geliyordu).
+const DATA_VERSION = 'cce8b7a6';
+
 // Yapı adı ekleri: .l/.r taraf, parantez = alternatif/eski terim
 const SIDE_LABELS = { l: 'Sol', r: 'Sağ', ol: 'Sol (dış)', or: 'Sağ (dış)' };
 
@@ -68,6 +73,12 @@ const SIDE_LABELS = { l: 'Sol', r: 'Sağ', ol: 'Sol (dış)', or: 'Sağ (dış)'
 // varsayılan olarak kapatılıyor.
 const COVER_RE = /fascia|aponeuros|retinacul|peritone|pleura|dura mater|pericardi|omentum|epicardium/i;
 const isCover = (name) => COVER_RE.test(name);
+
+// Üreme sistemi yapıları. Okul/sınıf ortamında varsayılan olarak kapalı;
+// anatomik bütünlük için silinmiyor, ayrı katmana alınıp anahtarla açılıyor.
+// (Üretra idrar yolunun da parçası olduğu için kapsam dışında bırakıldı.)
+const GENITAL_RE = /penis|scrot|testis|testicul|epididym|prostat|seminal|ductus deferens|spermat|glans|corpus cavernos|corpus spongios|uter|ovar|vagin|clitor|salping/i;
+const isGenital = (name) => GENITAL_RE.test(name);
 
 function parseStructureName(raw) {
     let name = (raw || '').trim();
@@ -137,6 +148,7 @@ class AnatomyApp {
         this.autoSpin = true;
         this.showHoverName = true;
         this.showCovers = false;     // fasya/periton gibi örtü zarları
+        this.showGenital = false;    // üreme sistemi — sınıf ortamı için kapalı
         this.dimOpacity = 0.16;
 
         this.raycaster = new THREE.Raycaster();
@@ -177,7 +189,7 @@ class AnatomyApp {
         this.loading.add(id);
         this.setLoading(true, `${SYSTEMS.find(s => s.id === id).ad} yükleniyor…`);
 
-        const gltf = await this.loader.loadAsync(`systems/${id}.glb`);
+        const gltf = await this.loader.loadAsync(`systems/${id}.glb?v=${DATA_VERSION}`);
 
         // three.js GLTFLoader node adlarını animasyon bağlaması için sterilize
         // eder (nokta silinir, boşluk "_" olur) -> "Incus.l" adı "Incusl" olur.
@@ -194,7 +206,7 @@ class AnatomyApp {
 
         // Yapıları "ana" ve "örtü" olarak iki gruba ayırıp her grubu tek
         // geometride birleştir; köşe başına structureId yaz.
-        const buckets = { main: [], cover: [] };
+        const buckets = { main: [], cover: [], genital: [] };
         const names = [];
         gltf.scene.updateMatrixWorld(true);
         gltf.scene.traverse((child) => {
@@ -212,7 +224,8 @@ class AnatomyApp {
             const n = geom.attributes.position.count;
             const ids = new Float32Array(n).fill(structureId);
             geom.setAttribute('structureId', new THREE.BufferAttribute(ids, 1));
-            buckets[isCover(name) ? 'cover' : 'main'].push(geom);
+            const kova = isGenital(name) ? 'genital' : (isCover(name) ? 'cover' : 'main');
+            buckets[kova].push(geom);
         });
 
         const sys = SYSTEMS.find(s => s.id === id);
@@ -223,7 +236,7 @@ class AnatomyApp {
             parts: []
         };
 
-        for (const kind of ['main', 'cover']) {
+        for (const kind of ['main', 'cover', 'genital']) {
             if (!buckets[kind].length) continue;
             const merged = mergeGeometries(buckets[kind]);
             buckets[kind].forEach(g => g.dispose());
@@ -240,7 +253,9 @@ class AnatomyApp {
             }));
             mesh.name = `${id}:${kind}`;
             mesh.userData.systemId = id;
-            mesh.visible = (kind === 'main') || this.showCovers;
+            mesh.visible = kind === 'main'
+                || (kind === 'cover' && this.showCovers)
+                || (kind === 'genital' && this.showGenital);
 
             layer.parts.push({
                 kind, mesh,
@@ -323,7 +338,10 @@ class AnatomyApp {
             mat.opacity = isActive ? (part.kind === 'cover' ? 0.5 : 1) : this.dimOpacity;
             mat.depthWrite = mat.opacity > 0.9;
             mat.transparent = mat.opacity < 0.999;
-            part.mesh.visible = layer.visible && (part.kind === 'main' || this.showCovers);
+            part.mesh.visible = layer.visible && (
+                part.kind === 'main'
+                || (part.kind === 'cover' && this.showCovers)
+                || (part.kind === 'genital' && this.showGenital));
         }
     }
 
@@ -638,6 +656,11 @@ class AnatomyApp {
 
         document.getElementById('cover-toggle').addEventListener('change', (e) => {
             this.showCovers = e.target.checked;
+            this.repaintAll();
+        });
+
+        document.getElementById('genital-toggle').addEventListener('change', (e) => {
+            this.showGenital = e.target.checked;
             this.repaintAll();
         });
 
