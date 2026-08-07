@@ -36,10 +36,23 @@
         setOpen(isOpen ? null : id);
     });
 
-    // Sahneye dokununca çekmeceyi kapat (model görünsün)
+    // Sahneye dokununca çekmeceyi kapat (model görünsün).
+    //
+    // ÖNEMLİ: bu dokunuş SEÇİM sayılmamalı. Aksi halde menüyü kapatmak için
+    // modele dokunmak, altta duran sönük katmandaki bir yapıyı seçiyor ve
+    // uygulama o yapının sistemine geçiyordu — "dolaşımı seçtim, menüyü
+    // kapatınca iskelete döndü" hatası buydu.
+    const app = () => window.anatomyApp || window.simulatorApp;
     const canvas = document.getElementById('canvas-container');
     if (canvas) {
-        canvas.addEventListener('pointerdown', () => { if (MOBILE()) closeAll(); }, true);
+        canvas.addEventListener('pointerdown', () => {
+            if (!MOBILE()) return;
+            const acikVar = Object.values(panels).some((el) => el && el.classList.contains('open'));
+            if (!acikVar) return;
+            closeAll();
+            const a = app();
+            if (a) a.suppressTap = true;   // bu dokunuş yalnız kapatma içindir
+        }, true);
     }
 
     // Bir yapı seçilince bilgi kartını otomatik aç — mobilde asıl beklenen bu.

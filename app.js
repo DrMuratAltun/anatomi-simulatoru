@@ -334,10 +334,17 @@ class AnatomyApp {
     // ---------------------------------------------------------
     // ETKİLEŞİM
     // ---------------------------------------------------------
-    async selectSystem(id) {
+    /**
+     * @param {boolean} secimiKoru  Yapıya tıklanarak gelindiyse seçim korunur;
+     *   aksi halde (listeden sistem seçimi) temizlenir. Korunmazsa kullanıcı bir
+     *   kemiğe dokunduğunda sistem değişiyor ama yapının adı panelden siliniyordu.
+     */
+    async selectSystem(id, secimiKoru = false) {
         this.activeSystem = id;
-        this.selected = null;
-        document.getElementById('structure-block').hidden = true;
+        if (!secimiKoru) {
+            this.selected = null;
+            document.getElementById('structure-block').hidden = true;
+        }
         this.refreshSystemList();
         this.showSystemInfo(id);
         await this.loadSystem(id);
@@ -405,7 +412,7 @@ class AnatomyApp {
         document.getElementById('structure-side').textContent =
             [parsed.side, parsed.note].filter(Boolean).join(' · ');
 
-        if (this.selected.systemId !== this.activeSystem) this.selectSystem(this.selected.systemId);
+        if (this.selected.systemId !== this.activeSystem) this.selectSystem(this.selected.systemId, true);
         else this.repaintAll();
     }
 
@@ -599,6 +606,10 @@ class AnatomyApp {
         });
         canvas.addEventListener('pointerdown', () => { this.dragStart = performance.now(); });
         canvas.addEventListener('pointerup', () => {
+            // Mobilde çekmeceyi kapatmak için yapılan dokunuş seçim sayılmaz
+            // (bkz. mobile.js). Aksi halde altta duran sönük katmandaki yapı
+            // seçilip aktif sistem değişiyordu.
+            if (this.suppressTap) { this.suppressTap = false; return; }
             if (performance.now() - (this.dragStart || 0) < 220) this.selectStructure();
         });
 
