@@ -144,6 +144,15 @@ Anatominin kendisi onların emeği; bu depo yalnızca web'e taşıma katmanıdı
   [Open3Dmodel](https://anatomytool.org/open3dmodel) aynı veriyi uzman denetiminden
   geçirmiş (~%70 yeniden meshlenmiş) — daha yüksek doğruluk gerekiyorsa oraya bakın.
 - Yalnız erkek anatomisi.
+- **Atlasta modellenmemiş yapılar** (adları var, geometrileri yok — üst kaynak
+  boşluğu, dışa aktarım hatası değil):
+  - **Lenf damarları ve duktus torasikus** — lenf katmanı yalnız düğüm, dalak,
+    timus ve tonsillerden oluşur. `Lymphatic vessels'` koleksiyonu boş.
+  - **Oynamaz eklemler** — kafatası suturları, gomfoz (diş), sinkondroz ve
+    sindesmozlar için koleksiyon var ama 0 mesh içeriyor. "Eklemler" katmanı
+    fiilen bağ (292), kapsül (34), disk/menisküs (46) ve 2 simfizden oluşur.
+  - Z-Anatomy bu tür yapıları `.j` (boş mesh) ve `.g` (3B yazı) işaretçileriyle
+    tutuyor; sondaki kesme işareti (`Thoracic duct'`) de "modellenmemiş" demek.
 
 ## Katkı
 

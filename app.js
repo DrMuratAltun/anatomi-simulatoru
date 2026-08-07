@@ -24,8 +24,11 @@ const SYSTEMS = [
     },
     {
         id: 'eklem', ad: 'Eklemler', latin: 'Articulationes', hex: '#9fd8cb',
-        desc: 'Kemikleri birbirine bağlayan yapılar: sinovyal (hareketli), kıkırdaksı ve lifli eklemler ' +
-              'ile bağlar (ligament). Hareket açıklığını belirler ve eklemi stabilize eder.',
+        desc: 'Eklemi saran ve destekleyen yapılar: bağlar (292), eklem kapsülleri (34), ' +
+              'disk ve menisküsler (46), pubik/sakrokoksigeal simfiz. ' +
+              'NOT: oynamaz eklemler (kafatası suturları, gomfoz, sinkondroz) atlasta ' +
+              'adlandırılmış ama 3B modellenmemiştir — kafatası suturları iskelet ' +
+              'katmanında kemik sınırları olarak görünür.',
         oncelik: 1
     },
     {
@@ -54,8 +57,10 @@ const SYSTEMS = [
     },
     {
         id: 'lenf', ad: 'Lenf Sistemi', latin: 'Systema lymphoideum', hex: '#7fb2e5',
-        desc: 'Lenf damarları, düğümler, dalak ve timus. Doku sıvısını dolaşıma geri döndürür, ' +
-              'yağ emilimine katılır ve bağışıklık yanıtının merkezini oluşturur.',
+        desc: 'Lenf düğümleri, dalak, timus ve tonsiller. Doku sıvısını dolaşıma geri döndürür, ' +
+              'yağ emilimine katılır ve bağışıklık yanıtının merkezini oluşturur. ' +
+              'NOT: lenf damarları ve duktus torasikus atlasta adlandırılmış ama ' +
+              '3B modellenmemiştir; bu katman organ ve düğümlerden oluşur.',
         oncelik: 6
     }
 ];
