@@ -23,7 +23,7 @@ const SYSTEMS = [
         oncelik: 0
     },
     {
-        id: 'eklem', ad: 'Eklemler', latin: 'Articulationes', hex: '#9fd8cb',
+        id: 'eklem', ad: 'Bağlar ve Eklem Yapıları', latin: 'Articulationes', hex: '#9fd8cb',
         desc: 'Eklemi saran ve destekleyen yapılar: bağlar (292), eklem kapsülleri (34), ' +
               'disk ve menisküsler (46), pubik/sakrokoksigeal simfiz. ' +
               'NOT: oynamaz eklemler (kafatası suturları, gomfoz, sinkondroz) atlasta ' +

@@ -34,7 +34,7 @@ TMP_COLL = "ZEXPORT_TMP"
 # id, blend koleksiyonu, Türkçe ad, hedef üçgen sayısı
 SYSTEMS = [
     ("iskelet",     "1: Skeletal system",               "İskelet Sistemi",   320000),
-    ("eklem",       "3: Joints",                        "Eklemler",          150000),
+    ("eklem",       "3: Joints",                        "Bağlar ve Eklem Yapıları", 150000),
     ("kas",         "4: Muscular system",               "Kas Sistemi",       420000),
     ("dolasim",     "5: Cardiovascular system",         "Dolaşım Sistemi",   420000),
     ("lenf",        "6: Lymphoid organs",               "Lenf Sistemi",      130000),

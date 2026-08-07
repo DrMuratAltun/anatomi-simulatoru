@@ -42,15 +42,15 @@
     }
 
     const STEPS = [
-        { t: 0,    cap: 'Tam boy insan anatomisi — 1.969 ayrı yapı, 7 sistem', run: (a) => { only('iskelet'); a.setCamera('front'); } },
+        { t: 0,    cap: 'Tam boy insan anatomisi — 2.914 ayrı yapı, 7 sistem', run: (a) => { only('iskelet'); a.setCamera('front'); } },
         { t: 5.5,  cap: 'İskelet Sistemi — 277 kemik ve kıkırdak yapısı',      run: (a) => a.setCamera('head') },
         { t: 10,   cap: 'Kafatası, omurga, göğüs kafesi — her kemik ayrı obje', run: (a) => a.setCamera('torso') },
-        { t: 15,   cap: 'Eklemler — bağlar ve eklem kapsülleri',               run: (a) => { only('iskelet', 'eklem'); a.setCamera('front'); } },
+        { t: 15,   cap: 'Bağlar ve Eklem Yapıları — 292 bağ, 46 disk, 34 kapsül',               run: (a) => { only('iskelet', 'eklem'); a.setCamera('front'); } },
         { t: 21,   cap: 'Kas Sistemi — 683 kas, iskeletin üzerine oturuyor',   run: (a) => { only('iskelet', 'kas'); } },
         { t: 27,   cap: 'Kasların üstündeki fasya tabakası — açıp kapatılabilir', run: () => toggle('cover-toggle', true) },
         { t: 32,   cap: 'Fasya kapalı: kas karınları tek tek görünür',         run: () => toggle('cover-toggle', false) },
-        { t: 36,   cap: 'Dolaşım Sistemi — kalp, arter ve venler',             run: (a) => { only('iskelet', 'dolasim'); a.setCamera('torso'); } },
-        { t: 42,   cap: 'Sinir Sistemi — beyin, omurilik ve çevresel sinirler', run: (a) => { only('iskelet', 'sinir'); a.setCamera('front'); } },
+        { t: 36,   cap: 'Dolaşım Sistemi — kalp, 356 arter, 203 ven',             run: (a) => { only('iskelet', 'dolasim'); a.setCamera('torso'); } },
+        { t: 42,   cap: 'Sinir Sistemi — beyin, omurilik, 266 sinir', run: (a) => { only('iskelet', 'sinir'); a.setCamera('front'); } },
         { t: 48,   cap: 'İç Organlar — sindirim, solunum, üriner sistem',      run: (a) => { only('iskelet', 'ic-organlar'); a.setCamera('torso'); } },
         { t: 53.5, cap: 'Her yapıya tıklanabilir — adı anında panelde',        run: () => { pick(0.52, 0.45) || pick(0.48, 0.42) || pick(0.55, 0.5); } },
         { t: 58,   cap: 'Lenf Sistemi — düğümler, dalak, timus',               run: (a) => { only('iskelet', 'lenf'); a.setCamera('front'); } },
@@ -97,8 +97,11 @@
         STEPS.forEach((s) => {
             setTimeout(() => {
                 bar.style.opacity = '0';
-                setTimeout(() => { bar.textContent = s.cap; bar.style.opacity = '1'; }, 240);
-                try { s.run(a); } catch (e) { console.warn('demo adımı atlandı', e); }
+                setTimeout(() => {
+                    try { s.run(a); } catch (e) { console.warn('demo adımı atlandı', e); }
+                    bar.textContent = s.cap;
+                    bar.style.opacity = '1';
+                }, 240);
             }, s.t * 1000);
         });
 

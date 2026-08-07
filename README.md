@@ -47,7 +47,7 @@ Bu depo aradaki mesafeyi kapatıyor: aynı veri, **33 MB**, tarayıcıda, Türk�
 | Sistem | Yapı | Üçgen | Boyut |
 |---|---:|---:|---:|
 | İskelet | 277 | 320.179 | 5,3 MB |
-| Eklemler | 413 | 172.439 | 3,7 MB |
+| Bağlar ve Eklem Yapıları | 413 | 172.439 | 3,7 MB |
 | Kas | 683 | 442.555 | 8,1 MB |
 | Sinir | 582 | 436.608 | 8,1 MB |
 | İç organlar | 120 | 261.853 | 4,8 MB |
@@ -149,7 +149,7 @@ Anatominin kendisi onların emeği; bu depo yalnızca web'e taşıma katmanıdı
   - **Lenf damarları ve duktus torasikus** — lenf katmanı yalnız düğüm, dalak,
     timus ve tonsillerden oluşur. `Lymphatic vessels'` koleksiyonu boş.
   - **Oynamaz eklemler** — kafatası suturları, gomfoz (diş), sinkondroz ve
-    sindesmozlar için koleksiyon var ama 0 mesh içeriyor. "Eklemler" katmanı
+    sindesmozlar için koleksiyon var ama 0 mesh içeriyor. "Bağlar ve Eklem Yapıları" katmanı
     fiilen bağ (292), kapsül (34), disk/menisküs (46) ve 2 simfizden oluşur.
   - Z-Anatomy bu tür yapıları `.j` (boş mesh) ve `.g` (3B yazı) işaretçileriyle
     tutuyor; sondaki kesme işareti (`Thoracic duct'`) de "modellenmemiş" demek.
