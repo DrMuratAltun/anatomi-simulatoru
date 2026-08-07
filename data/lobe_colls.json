@@ -1,0 +1,608 @@
+[
+ {
+  "ad": "Brain",
+  "mesh": 257,
+  "alt": [
+   "Cerebrum",
+   "Cerebellum",
+   "Brainstem"
+  ],
+  "ornek": [
+   "Brain.j",
+   "Anterior commissure",
+   "Aqueduct of midbrain",
+   "Corpus callosum",
+   "Fourth ventricle"
+  ]
+ },
+ {
+  "ad": "Cerebrum",
+  "mesh": 186,
+  "alt": [
+   "Cerebral hemisphere",
+   "Telencephalon",
+   "Diencephalon",
+   "Left cerebral hemisphere",
+   "Right cerebal hemisphere"
+  ],
+  "ornek": [
+   "Cerebrum.j",
+   "Anterior commissure",
+   "Corpus callosum",
+   "Habenula",
+   "Hippocampal commissure"
+  ]
+ },
+ {
+  "ad": "Telencephalon",
+  "mesh": 164,
+  "alt": [
+   "Cerebral lobes",
+   "Interlobular sulci",
+   "Frontal lobe",
+   "Parietal lobe",
+   "Occipital lobe",
+   "Temporal lobe",
+   "Insula",
+   "Limbic lobe",
+   "Pallium",
+   "Basal forebrain",
+   "Corpus striatum",
+   "White matter of telencephalon",
+   "Lateral ventricle",
+   "Walls of lateral ventricle"
+  ],
+  "ornek": [
+   "Lat_Fis-ant-Horizont.l",
+   "Lat_Fis-post.l",
+   " Posterior transverse collateral sulcus.l",
+   "Sulcus interm_prim-Jensen.l",
+   "Telencephalon.j"
+  ]
+ },
+ {
+  "ad": "Neo-cortex",
+  "mesh": 126,
+  "alt": [],
+  "ornek": [
+   "Temporal pole.l",
+   "Occipital pole.l",
+   "Central sulcus.l",
+   "Parieto-occipital sulcus.l",
+   "Subparietal sulcus.l"
+  ]
+ },
+ {
+  "ad": "Left cerebral hemisphere",
+  "mesh": 73,
+  "alt": [],
+  "ornek": [
+   "Temporal pole.l",
+   "Occipital pole.l",
+   "Central sulcus.l",
+   "Parieto-occipital sulcus.l",
+   "Subparietal sulcus.l"
+  ]
+ },
+ {
+  "ad": "Right cerebal hemisphere",
+  "mesh": 73,
+  "alt": [],
+  "ornek": [
+   "Amygdaloid body.r",
+   "Caudate nucleus.r",
+   "Fornix.r",
+   "Globus pallidus.r",
+   "Hippocampus.r"
+  ]
+ },
+ {
+  "ad": "Frontal lobe",
+  "mesh": 43,
+  "alt": [
+   "Inferior frontal gyrus"
+  ],
+  "ornek": [
+   "Orbital gyri (Frontomarginal gyrus and sulcus*).l",
+   "Paracentral gyrus and sulcus*.l",
+   "Transverse frontopolar gyrus and sulcus*.l",
+   "Straight gyrus (Gyrus rectus).l",
+   "Lat_Fis-ant-Vertical.l"
+  ]
+ },
+ {
+  "ad": "Brainstem",
+  "mesh": 35,
+  "alt": [
+   "Nuclei of cranial nerve",
+   "White matter of brainstem",
+   "Midbrain",
+   "Pons",
+   "Fourth ventricle",
+   "Rhomboid fossa",
+   "Roof of fourth ventricle",
+   "Medulla oblongata"
+  ],
+  "ornek": [
+   "Brainstem.j",
+   "Aqueduct of midbrain",
+   "Fourth ventricle",
+   "Interpeduncular fossa.l",
+   "Interpeduncular fossa.r"
+  ]
+ },
+ {
+  "ad": "Temporal lobe",
+  "mesh": 23,
+  "alt": [
+   "Superior temporal gyrus",
+   "Occipitotemporal gyri"
+  ],
+  "ornek": [
+   "Inferior temporal sulcus.l",
+   "Inferior temporal gyrus.l",
+   "Middle temporal gyrus.l",
+   "Superior temporal sulcus.l",
+   "Occipitotemporal sulcus (Lateral part*).l"
+  ]
+ },
+ {
+  "ad": "Diencephalon",
+  "mesh": 20,
+  "alt": [
+   "Habenula",
+   "Optic tract",
+   "Infundibulum of hypothalamus",
+   "Epithalamus",
+   "Thalamus",
+   "Prethalamus",
+   "Subthalamus",
+   "Preoptic area",
+   "Hypothalamus",
+   "Pretectum",
+   "Prerubral tegmentum",
+   "White matter of diencephalon",
+   "Third ventricle",
+   "Walls of third ventricle"
+  ],
+  "ornek": [
+   "Lateral geniculate body.r",
+   "Medial geniculate body.r",
+   "Mamillary body.l",
+   "Mamillary body.r",
+   "Optic chiasm.r"
+  ]
+ },
+ {
+  "ad": "Occipital lobe",
+  "mesh": 19,
+  "alt": [],
+  "ornek": [
+   "Inferior occipital gyrus and sulcus*.l",
+   "Lingual gyrus.l",
+   "Lateral occipital gyrus (Middle occipital gyrus*).l",
+   "Calcarine sulcus.l",
+   "Cuneus.l"
+  ]
+ },
+ {
+  "ad": "Midbrain",
+  "mesh": 15,
+  "alt": [
+   "Cerebral peduncle",
+   "Central mesencephalic structures",
+   "Tectum of midbrain"
+  ],
+  "ornek": [
+   "Midbrain.r",
+   "Interpeduncular fossa.l",
+   "Interpeduncular fossa.r",
+   "Midbrain.l",
+   "Red nucleus.l"
+  ]
+ },
+ {
+  "ad": "Parietal lobe",
+  "mesh": 15,
+  "alt": [
+   "Inferior parietal lobe"
+  ],
+  "ornek": [
+   "Postcentral gyrus.l",
+   "Postcentral sulcus.l",
+   "Precuneus.l",
+   "Superior parietal lobule.l",
+   "Intraparietal sulcus.l"
+  ]
+ },
+ {
+  "ad": "Limbic lobe",
+  "mesh": 13,
+  "alt": [
+   "Limbic gyrus",
+   "Hippocampus"
+  ],
+  "ornek": [
+   "Limbic lobe.j",
+   "Cingulate sulcus (Marginal part*).l",
+   "Cingulate gyrus and sulcus (Middle anterior part).l",
+   "Cingulate gyrus and sulcus (Middle posterior part).l",
+   "Cingulate gyrus and sulcus (Posterior dorsal part).l"
+  ]
+ },
+ {
+  "ad": "White matter of telencephalon",
+  "mesh": 13,
+  "alt": [
+   "Internal capsule",
+   "Association fibres of telencephalon",
+   "Commissural fibres of telencephalon",
+   "Projection fibers of telencephalon"
+  ],
+  "ornek": [
+   "Stria terminalis.r",
+   "Stria terminalis.l",
+   "White matter of telencephalon.l",
+   "Projection fibres of telencephalon.j",
+   "White matter of telencephalon.r"
+  ]
+ },
+ {
+  "ad": "Cerebral peduncle",
+  "mesh": 6,
+  "alt": [
+   "Base of peduncle",
+   "Tegmentum of midbrain"
+  ],
+  "ornek": [
+   "Red nucleus.l",
+   "Red nucleus.r",
+   "Nucleus of oculomotor nerve.l",
+   "Nucleus of oculomotor nerve.r",
+   "Accessory nucleus of oculomotor nerve.r"
+  ]
+ },
+ {
+  "ad": "Grey matter of tegmentum of midbrain",
+  "mesh": 6,
+  "alt": [
+   "Oculomotor complex"
+  ],
+  "ornek": [
+   "Red nucleus.l",
+   "Red nucleus.r",
+   "Nucleus of oculomotor nerve.l",
+   "Nucleus of oculomotor nerve.r",
+   "Accessory nucleus of oculomotor nerve.r"
+  ]
+ },
+ {
+  "ad": "Tegmentum of midbrain",
+  "mesh": 6,
+  "alt": [
+   "Grey matter of tegmentum of midbrain",
+   "Reticular formation of midbrain",
+   "White matter of tegmentum of midbrain"
+  ],
+  "ornek": [
+   "Red nucleus.l",
+   "Red nucleus.r",
+   "Nucleus of oculomotor nerve.l",
+   "Nucleus of oculomotor nerve.r",
+   "Accessory nucleus of oculomotor nerve.r"
+  ]
+ },
+ {
+  "ad": "Commissural fibres of telencephalon",
+  "mesh": 4,
+  "alt": [
+   "Corpus callosum",
+   "Anterior commissure"
+  ],
+  "ornek": [
+   "Hippocampal commissure",
+   "Commissural fibres of telencephalon.j",
+   "Corpus callosum",
+   "Anterior commissure"
+  ]
+ },
+ {
+  "ad": "Inferior parietal lobe",
+  "mesh": 4,
+  "alt": [],
+  "ornek": [
+   "Angular gyrus.l",
+   "Supramarginal gyrus.l",
+   "Angular gyrus.r",
+   "Supramarginal gyrus.r"
+  ]
+ },
+ {
+  "ad": "Tectum of midbrain",
+  "mesh": 4,
+  "alt": [
+   "Superior colliculus",
+   "Inferior colliculus"
+  ],
+  "ornek": [
+   "Superior colliculus.r",
+   "Superior colliculus.l",
+   "Inferior colliculus.r",
+   "Inferior colliculus.l"
+  ]
+ },
+ {
+  "ad": "White matter of diencephalon",
+  "mesh": 4,
+  "alt": [
+   "Supra-optic commissures",
+   "Hypothalamohypophysial tract"
+  ],
+  "ornek": [
+   "Stria medullaris thalami.r",
+   "Stria medullaris thalami.l",
+   "Posterior commissure",
+   "White matter of diencephalon.j"
+  ]
+ },
+ {
+  "ad": "Basal forebrain",
+  "mesh": 3,
+  "alt": [
+   "Olfactory structures",
+   "Magnocellular nuclei of basal forebrain",
+   "Amygdaloid body",
+   "Ventral striatum"
+  ],
+  "ornek": [
+   "Septal nuclei",
+   "Amygdaloid body.r",
+   "Amygdaloid body.l"
+  ]
+ },
+ {
+  "ad": "Cerebral hemisphere",
+  "mesh": 3,
+  "alt": [],
+  "ornek": [
+   "Temporal pole.l",
+   "Occipital pole.l",
+   "Cerebral hemisphere.j"
+  ]
+ },
+ {
+  "ad": "Projection fibers of telencephalon",
+  "mesh": 2,
+  "alt": [
+   "Corticopontine fibres",
+   "Corticonuclear fibres",
+   "Corticomesencephalic fibres",
+   "Fornix"
+  ],
+  "ornek": [
+   "Fornix.r",
+   "Fornix.l"
+  ]
+ },
+ {
+  "ad": "Central mesencephalic structures",
+  "mesh": 1,
+  "alt": [],
+  "ornek": [
+   "Aqueduct of midbrain"
+  ]
+ },
+ {
+  "ad": "Allocortex",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Anterior cerebral artery'",
+  "mesh": 0,
+  "alt": [
+   "Callosomarginal artery'",
+   "Pericallosal artery'"
+  ],
+  "ornek": []
+ },
+ {
+  "ad": "Association fibres of telencephalon",
+  "mesh": 0,
+  "alt": [
+   "Short association fibres",
+   "Long association fibres"
+  ],
+  "ornek": []
+ },
+ {
+  "ad": "Caudate lobe",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Cerebral arterial circle",
+  "mesh": 0,
+  "alt": [
+   "Anterior communicating artery'",
+   "Posterior communicating artery'"
+  ],
+  "ornek": []
+ },
+ {
+  "ad": "Cerebral cortex",
+  "mesh": 0,
+  "alt": [
+   "Allocortex",
+   "Neocortex"
+  ],
+  "ornek": []
+ },
+ {
+  "ad": "Cerebral lobes",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Cortex of kidney lobe",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Corticomesencephalic fibres",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Hemisphere of cerebellum",
+  "mesh": 0,
+  "alt": [
+   "Wing of central lobule",
+   "Anterior quadrangular lobule",
+   "Semlunar lobules"
+  ],
+  "ornek": []
+ },
+ {
+  "ad": "Inferior lobe of left lung",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Inferior lobe of right lung",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Kidney lobe",
+  "mesh": 0,
+  "alt": [
+   "Cortex of kidney lobe",
+   "Renal pyramid"
+  ],
+  "ornek": []
+ },
+ {
+  "ad": "Left lobe of liver",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Lobe of lung",
+  "mesh": 0,
+  "alt": [
+   "Bronchopulmonary segment"
+  ],
+  "ornek": []
+ },
+ {
+  "ad": "Lobe of thymus",
+  "mesh": 0,
+  "alt": [
+   "Lobules of thymus"
+  ],
+  "ornek": []
+ },
+ {
+  "ad": "Lobe of thyroid gland",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Magnocellular nuclei of basal forebrain",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Middle cerebral artery'",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Middle lobe of right lung",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Neocortex",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Posterior lobe of cerebellum",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Reticular formation of midbrain",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Spinomesencephalic tracts",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Superior lobe of left lung",
+  "mesh": 0,
+  "alt": [
+   "Lingula of left lung"
+  ],
+  "ornek": []
+ },
+ {
+  "ad": "Superior lobe of right lung",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Veins of brain'",
+  "mesh": 0,
+  "alt": [],
+  "ornek": []
+ },
+ {
+  "ad": "Veins of cerebral column'",
+  "mesh": 0,
+  "alt": [
+   "Intervertebral veins'",
+   "External vertebral venous plexuses'"
+  ],
+  "ornek": []
+ },
+ {
+  "ad": "White matter of brainstem",
+  "mesh": 0,
+  "alt": [
+   "Trigeminal lemniscus",
+   "Central tegmental tract"
+  ],
+  "ornek": []
+ },
+ {
+  "ad": "White matter of tegmentum of midbrain",
+  "mesh": 0,
+  "alt": [
+   "Tegmental decussations"
+  ],
+  "ornek": []
+ }
+]

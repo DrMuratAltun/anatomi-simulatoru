@@ -1,12 +1,23 @@
 # Anatomi Simülatörü
 
+[![Canlı Demo](https://img.shields.io/badge/Canl%C4%B1_Demo-a%C3%A7-7fb2e5?style=for-the-badge&logo=googlechrome&logoColor=white)](https://drmurataltun.github.io/anatomi-simulatoru/)
+[![Otomatik Tur](https://img.shields.io/badge/Otomatik_Tur-%3Fdemo%3D1-c98a5e?style=for-the-badge)](https://drmurataltun.github.io/anatomi-simulatoru/?demo=1)
+[![Kod: MIT](https://img.shields.io/badge/Kod-MIT-3da639?style=for-the-badge)](LICENSE)
+[![Veri: CC BY-SA 4.0](https://img.shields.io/badge/3B_Veri-CC_BY--SA_4.0-ef9421?style=for-the-badge)](LICENSE-DATA.md)
+
 Tarayıcıda çalışan, **Türkçe arayüzlü tam boy insan anatomisi görüntüleyicisi**.
 Kurulum yok, hesap yok, sunucu yok — bir statik dosya sunucusu yeter.
 
 7 anatomik sistem, **1.969 ayrı yapı**. Herhangi bir kemiğe, kasa ya da organa
 tıklayın; adı anında görünür.
 
-![Anatomi Simülatörü](docs/ekran-goruntusu.jpg)
+### ▶ [Tarayıcıda hemen dene → drmurataltun.github.io/anatomi-simulatoru](https://drmurataltun.github.io/anatomi-simulatoru/)
+
+[![Anatomi Simülatörü — tıklayın, canlı açılır](docs/ekran-goruntusu.jpg)](https://drmurataltun.github.io/anatomi-simulatoru/)
+
+*Görsele tıklayın — canlı sürüm açılır. Kendi kendine gezen tanıtım turu için
+[`?demo=1`](https://drmurataltun.github.io/anatomi-simulatoru/?demo=1).
+İlk açılışta yalnız iskelet indirilir (5 MB); diğer sistemler tıklandıkça yüklenir.*
 
 *[English summary below](#english)*
 
@@ -47,6 +58,10 @@ Bu depo aradaki mesafeyi kapatıyor: aynı veri, **33 MB**, tarayıcıda, Türk�
 ![Katmanlar](docs/katmanlar.jpg)
 
 ## Çalıştırma
+
+Kurmadan denemek için: **[drmurataltun.github.io/anatomi-simulatoru](https://drmurataltun.github.io/anatomi-simulatoru/)**
+
+Yerelde:
 
 ```bash
 git clone https://github.com/DrMuratAltun/anatomi-simulatoru.git
@@ -157,6 +172,8 @@ of a system are merged into one `BufferGeometry` with a per-vertex `structureId`
 1.9M triangles render in ~10 draw calls while raycasting still resolves the precise
 structure name.
 
+**Live demo: [drmurataltun.github.io/anatomi-simulatoru](https://drmurataltun.github.io/anatomi-simulatoru/)**
+
 ```bash
 git clone https://github.com/DrMuratAltun/anatomi-simulatoru.git
 cd anatomi-simulatoru && python3 server.py   # http://127.0.0.1:8092
@@ -165,6 +182,12 @@ cd anatomi-simulatoru && python3 server.py   # http://127.0.0.1:8092
 Code is MIT. **3D data is CC BY-SA 4.0** and derived from BodyParts3D (DBCLS) and
 Z-Anatomy — attribution is mandatory and ShareAlike applies. See
 [ATTRIBUTION.md](ATTRIBUTION.md).
+
+---
+
+İlgili proje: **[beyin-simulatoru](https://github.com/DrMuratAltun/beyin-simulatoru)** —
+10 bölge, 208 yapı, girus düzeyinde beyin anatomisi.
+[Canlı demo →](https://drmurataltun.github.io/beyin-simulatoru/)
 
 ---
 
