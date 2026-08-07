@@ -82,12 +82,15 @@
         ADIM.forEach((s) => {
             setTimeout(() => {
                 kutu.style.opacity = '0';
+                // Katman değişimi ile altyazı AYNI anda olmalı; önce sahneyi
+                // değiştirip altyazıyı 240 ms sonra yazınca "Dolaşım Sistemi"
+                // yazarken sinir sistemi görünüyordu.
                 setTimeout(() => {
+                    try { s.yap(a); } catch (e) { console.warn('adım atlandı', e); }
                     ust.textContent = s.ust;
                     alt.textContent = s.alt;
                     kutu.style.opacity = '1';
                 }, 240);
-                try { s.yap(a); } catch (e) { console.warn('adım atlandı', e); }
             }, s.t * 1000);
         });
 
