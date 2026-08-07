@@ -503,6 +503,22 @@ class AnatomyApp {
     // ---------------------------------------------------------
     // KAMERA
     // ---------------------------------------------------------
+    /**
+     * Dikey (mobil) ekranda yatay görüş açısı daraldığı için model kadraja
+     * sığmıyor. Ön ayar mesafeleri geniş ekrana göre yazıldı; burada en-boy
+     * oranına göre ölçekleniyor.
+     */
+    fitDistance(pos, target) {
+        const dir = pos.clone().sub(target);
+        const d = dir.length();
+        if (d < 1e-6) return pos.clone();
+        const halfW = (this.bodyHeight || 3.4) * 0.30;
+        const vFov = THREE.MathUtils.degToRad(this.camera.fov);
+        const needed = halfW / (Math.tan(vFov / 2) * Math.max(this.camera.aspect, 0.3));
+        const f = Math.max(1, Math.min(3, needed / d));
+        return target.clone().add(dir.multiplyScalar(f));
+    }
+
     setCamera(preset, animate = true) {
         const h = this.bodyHeight || 3.4;
         const views = {
@@ -514,8 +530,11 @@ class AnatomyApp {
             torso: { pos: [0, h * 0.08, h * 0.72], target: [0, h * 0.08, 0] }
         };
         const v = views[preset] || views.front;
-        const pos = new THREE.Vector3(...v.pos);
         const target = new THREE.Vector3(...v.target);
+        // Ham ön ayar saklanır: ekran döndürülünce kadraj HAM değerden yeniden
+        // hesaplanır, yoksa fit yalnız büyüttüğü için geri küçülmez.
+        this.lastView = { pos: new THREE.Vector3(...v.pos), target: target.clone() };
+        const pos = this.fitDistance(this.lastView.pos, target);
         if (!animate) {
             this.camera.position.copy(pos);
             this.controls.target.copy(target);
@@ -561,6 +580,13 @@ class AnatomyApp {
             this.camera.aspect = w / h;
             this.camera.updateProjectionMatrix();
             this.renderer.setSize(w, h);
+
+            // En-boy oranı değişti: kadrajı yeniden hesapla (telefon döndürme)
+            if (!this.flying && this.normalized && this.lastView) {
+                this.camera.position.copy(this.fitDistance(this.lastView.pos, this.lastView.target));
+                this.controls.target.copy(this.lastView.target);
+                this.controls.update();
+            }
         };
         window.addEventListener('resize', resize);
         if (window.ResizeObserver) new ResizeObserver(resize).observe(this.container);

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anatomi Simülatörü | Tam Boy İnsan Anatomisi</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=81261795">
     <script type="importmap">
     {
         "imports": {
@@ -111,7 +111,14 @@
         <span class="attrib">Model: BodyParts3D — DBCLS — CC-BY-SA 2.1 JP · Z-Anatomy — CC-BY-SA 4.0</span>
     </footer>
 
-    <script type="module" src="app.js"></script>
+    <!-- Mobil: panelleri alt çekmece olarak aç/kapa -->
+    <nav class="mobile-bar" id="mobile-bar">
+        <button class="mob-btn" data-panel="left-panel">◧ Sistemler &amp; Görünüm</button>
+        <button class="mob-btn" data-panel="info-panel">◨ Bilgi Kartı</button>
+    </nav>
+
+    <script type="module" src="app.js?v=a4d3f7eb"></script>
+    <script src="mobile.js?v=d6ccf556"></script>
     <script>
         // Otomatik tanıtım turu yalnızca ?demo=1 ile yüklenir
         if (new URLSearchParams(location.search).has('demo')) {
