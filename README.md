@@ -8,7 +8,7 @@
 Tarayıcıda çalışan, **Türkçe arayüzlü tam boy insan anatomisi görüntüleyicisi**.
 Kurulum yok, hesap yok, sunucu yok — bir statik dosya sunucusu yeter.
 
-7 anatomik sistem, **1.969 ayrı yapı**. Herhangi bir kemiğe, kasa ya da organa
+7 anatomik sistem, **2.914 ayrı yapı**. Herhangi bir kemiğe, kasa ya da organa
 tıklayın; adı anında görünür.
 
 ### ▶ [Tarayıcıda hemen dene → drmurataltun.github.io/anatomi-simulatoru](https://drmurataltun.github.io/anatomi-simulatoru/)
@@ -46,14 +46,14 @@ Bu depo aradaki mesafeyi kapatıyor: aynı veri, **33 MB**, tarayıcıda, Türk�
 
 | Sistem | Yapı | Üçgen | Boyut |
 |---|---:|---:|---:|
-| İskelet | 277 | 336.208 | 5,3 MB |
-| Eklemler | 413 | 172.727 | 3,7 MB |
-| Kas | 683 | 462.974 | 8,1 MB |
-| Sinir | 335 | 350.478 | 6,3 MB |
-| İç organlar | 76 | 260.638 | 4,7 MB |
-| Lenf | 163 | 127.682 | 1,5 MB |
-| Dolaşım | 22 | 189.336 | 3,4 MB |
-| **Toplam** | **1.969** | **1.900.043** | **33 MB** |
+| İskelet | 277 | 320.179 | 5,3 MB |
+| Eklemler | 413 | 172.439 | 3,7 MB |
+| Kas | 683 | 442.555 | 8,1 MB |
+| Sinir | 582 | 436.608 | 8,1 MB |
+| İç organlar | 120 | 261.853 | 4,8 MB |
+| Lenf | 163 | 95.762 | 1,5 MB |
+| Dolaşım | 676 | 448.731 | 7,9 MB |
+| **Toplam** | **2.914** | **2.178.127** | **37 MB** |
 
 ![Katmanlar](docs/katmanlar.jpg)
 
@@ -159,7 +159,7 @@ bilginiz varsa PR açın; TA2 hiyerarşisi Z-Anatomy'nin `TA2.csv` dosyasında.
 **Full-body human anatomy viewer that runs in the browser.** No installation, no
 account, no build step — any static file server works.
 
-7 anatomical systems, **1,969 individually clickable structures**. Turkish UI;
+7 anatomical systems, **2,914 individually clickable structures**. Turkish UI;
 structure names are in Terminologia Anatomica.
 
 The open anatomical data (BodyParts3D → Z-Anatomy) has existed for years, but it

@@ -19,7 +19,7 @@
     function kamera(preset) { app().setCamera(preset); }
 
     const ADIM = [
-        { t: 0,    ust: 'Tam Boy İnsan Anatomisi',  alt: '7 sistem · 1.969 yapı · tarayıcıda',
+        { t: 0,    ust: 'Tam Boy İnsan Anatomisi',  alt: '7 sistem · 2.914 yapı · tarayıcıda',
           yap: (a) => { goster('iskelet'); kamera('front'); } },
         { t: 5.5,  ust: 'İskelet Sistemi',          alt: '277 kemik ve kıkırdak yapısı',
           yap: () => kamera('front') },
